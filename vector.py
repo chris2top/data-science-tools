@@ -1,5 +1,10 @@
 #A vector e.g. [1, 2 ,3]  is defined as a lsit of values where 1 is the x component, 2 the y component...
 
+from math import sqrt
+
+def length(vector):
+    return sqrt(sum([component ** 2 for component in vector]))
+
 def concat(vectors, combine):
     combined_vector = vectors[0]
 
@@ -29,4 +34,5 @@ a = [1,1,1]
 b = [2,2,2]
 c = [1,2,3]
 
+print(length(a))
 print(mul_scalar([a, b], a_s))
