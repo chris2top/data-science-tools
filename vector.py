@@ -5,6 +5,9 @@ from math import sqrt
 def length(vector):
     return sqrt(sum([component ** 2 for component in vector]))
 
+def unit_vector(vector):
+    return div_scalar([vector], length(vector))
+
 def concat(vectors, combine):
     combined_vector = vectors[0]
 
@@ -27,6 +30,10 @@ def sub(vectors):
 def mul_scalar(vectors, scalar):
     return [scalar * component for component in add(vectors)]
 
+def div_scalar(vectors, scalar):
+    return mul_scalar(vectors, 1 / scalar)
+
+
 
 a_s = 3
 
@@ -34,5 +41,4 @@ a = [1,1,1]
 b = [2,2,2]
 c = [1,2,3]
 
-print(length(a))
-print(mul_scalar([a, b], a_s))
+print(unit_vector(c))
