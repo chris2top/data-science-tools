@@ -14,3 +14,21 @@ def create_matrix(rows, cols, creation):
         for j in range(cols):
             matrix[i][j] = creation(i, j)
     return matrix
+
+def identity(i, j):
+    if i == j:
+        return 1
+    return 0
+
+def identity_matrix(n):
+    return create_matrix(n, n, identity)
+
+def print_matrix(matrix):
+    for row in matrix:
+        for col in row:
+            print(col, end=" ")
+        print()
+
+print(is_matrix([[1,2],[1,2]]))
+
+print_matrix(identity_matrix(3))
