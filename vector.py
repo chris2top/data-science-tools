@@ -19,11 +19,14 @@ def add(vectors):
 def sub(vectors):
     return concat(vectors, lambda a, b: a - b)
 
+def mul_scalar(vectors, scalar):
+    return [scalar * component for component in add(vectors)]
 
 
+a_s = 3
 
-a = [1,2,2]
-b = [2,3,4]
+a = [1,1,1]
+b = [2,2,2]
 c = [1,2,3]
 
-print(sub([a,b,c]))
+print(mul_scalar([a, b], a_s))
