@@ -8,6 +8,9 @@ def length(vector):
 def unit_vector(vector):
     return div_scalar([vector], length(vector))
 
+def zero_vector(dimension):
+    return [0 for i in range(dimension)]
+
 def concat(vectors, combine):
     combined_vector = vectors[0]
 
@@ -41,4 +44,7 @@ a = [1,1,1]
 b = [2,2,2]
 c = [1,2,3]
 
+print(c)
+print(length(c))
 print(unit_vector(c))
+print(zero_vector(4))
