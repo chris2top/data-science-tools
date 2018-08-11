@@ -16,9 +16,7 @@ def concat(vectors, combine):
 
     for i in range(0, len(vectors)):
         if i > 0:
-            if len(vectors[i-1]) != len(vectors[i]):
-                raise Exception('Vectors must be the same dimensions!')
-
+            _check_dimensions(vectors, i)
             for j in range(0, len(vectors[0])):
                 combined_vector[j] = combine(combined_vector[j], vectors[i][j])
 
@@ -36,15 +34,25 @@ def mul_scalar(vectors, scalar):
 def div_scalar(vectors, scalar):
     return mul_scalar(vectors, 1 / scalar)
 
+def dot_product(vectors):
+    dot = 0
+
+    for i in range(1, len(vectors)):
+        _check_dimensions(vectors, i)
+        for j in range(0, len(vectors[0])):
+            dot += vectors[i-1][j] * vectors[i][j]
+
+    return dot
+
+def _check_dimensions(vectors, i):
+    if len(vectors[i-1]) != len(vectors[i]):
+        raise Exception('Vectors must be the same dimensions!')
 
 
 a_s = 3
 
-a = [1,1,1]
-b = [2,2,2]
+a = [1,2,3]
+b = [4,-5,6]
 c = [1,2,3]
 
-print(c)
-print(length(c))
-print(unit_vector(c))
-print(zero_vector(4))
+print(dot_product([a,b]))
