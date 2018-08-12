@@ -12,6 +12,10 @@ def median(list):
 
     return mean([list[median-1], list[median]])
 
+def sub_mean(list): #results has mean of 0
+    mean1 = mean(list)
+    return [element - mean1 for element in list]
+
 def q(list, p):
     q = int(len(list) * p)
     return sorted(list)[q]
@@ -51,6 +55,7 @@ def standard_deviation(list, n=None):
 
 list = [8,7,9,10,6]
 
+print(mean(sub_mean(list)))
 print(median(list))
 
 print(mode(list))
